@@ -25,6 +25,7 @@ def main(request):
                 result = "Нет действительных корней."
             elif discriminant == 0:
                 x = -b / (2*a)
+                x = 0 if x == 0 else x
                 result = f"Один корень: x = {x:.2f}"
             else:
                 x1 = (-b + sqrt(discriminant)) / (2*a)
