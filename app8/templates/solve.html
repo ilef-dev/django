@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Решение квадратных уравнений</title>
+</head>
+<body>
+    <h1>Решение квадратного уравнения</h1>
+
+    <p>Решите уравнение <b>{{ random_a }}x² + {{ random_b }}x + {{ random_c }} = 0</b></p>
+
+    <h3>Введите ответ:</h3>
+    <form method="get" action="/app8/solve/check/">
+        <label for="x1">x1 и x2:</label>
+        <input type="text" id="x1" name="x1" placeholder="x1">
+        <input type="text" id="x2" name="x2" placeholder="x2"><br>
+
+        <label for="x">x:</label>
+        <input type="text" id="x" name="x" placeholder="x"><br>
+
+        <label for="bkr">Бесконечное количество решений:</label>
+        <input type="checkbox" name="bkr" id="bkr"><br>
+
+        <label for="nr">Нет решений:</label>
+        <input type="checkbox" name="nr" id="nr"><br><br>
+
+        <button type="submit">Отправить/Проверить</button>
+    </form>
+
+    {% if user_feedback %}
+        <p>Результат: {{ user_feedback }}</p>
+    {% endif %}
+
+    {% if solution %}
+        <p>Правильное решение: {{ solution }}</p>
+    {% endif %}
+
+    <br>
+    <form method="get" action="/app8/solve/">
+        <button type="submit">Сгенерировать новое уравнение</button>
+    </form>
+</body>
+</html>
