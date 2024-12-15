@@ -1,11 +1,5 @@
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Решение квадратных уравнений</title>
-</head>
-<body>
+{% extends "base.html" %}
+{% block content %}
     <h1>Решение квадратного уравнения</h1>
 
     <p>Решите уравнение <b>{{ random_a }}x² + {{ random_b }}x + {{ random_c }} = 0</b></p>
@@ -40,5 +34,4 @@
     <form method="get" action="/app8/solve/">
         <button type="submit">Сгенерировать новое уравнение</button>
     </form>
-</body>
-</html>
+{% endblock %}

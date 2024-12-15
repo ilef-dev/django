@@ -1,0 +1,156 @@
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+}
+
+header {
+    background: #333;
+    color: #fff;
+    padding: 10px 20px;
+    text-align: center;
+}
+
+nav a {
+    color: #fff;
+    margin: 0 10px;
+    text-decoration: none;
+}
+
+main {
+    padding: 20px;
+}
+
+footer {
+    text-align: center;
+    padding: 10px;
+    background: #333;
+    color: #fff;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+.category-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.category-buttons a {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #fff;
+    background-color: #8d8d8d;
+    border: none;
+    border-radius: 8px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.category-buttons a:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+    background-color: #7f29e9;
+}
+
+.category-buttons a.active {
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+    background-color: #7f29e9;
+    cursor: default;
+}
+
+.tag-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 30px;
+    justify-content: center;
+}
+
+.tag-buttons a {
+    display: inline-block;
+    padding: 5px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #000000;
+    background-color: #ffffff;
+    border: none;
+    border-radius: 30px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 25px;
+    margin-top: 5px;
+}
+
+.tag-buttons a:hover {
+    background-color: #d1d1d1;
+    transform: scale(1.05);
+}
+
+.tag-buttons form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.tag-buttons label {
+    display: flex;
+    align-items: center;
+    padding: 8px 15px;
+    font-size: 16px;
+    font-weight: 600;
+    text-decoration: none;
+    color: #4a4a4a;
+    background-color: #f2f2f2;
+    border: 2px solid #d1d1d1;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.tag-buttons input[type="checkbox"] {
+    margin-right: 10px;
+    accent-color: #7f29e9;
+}
+
+.tag-buttons label:hover {
+    background-color: #7f29e9;
+    color: #ffffff;
+    transform: scale(1.05);
+}
+
+.tag-buttons label.active {
+    background-color: #7f29e9;
+    color: white;
+    cursor: default;
+    border-color: #6a1a93;
+}
+
+.tag-buttons form button {
+    padding: 8px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff;
+    background-color: #7f29e9;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    margin-top: 15px;
+}
+
+.tag-buttons form button:hover {
+    background-color: #6a1a93;
+    transform: scale(1.05);
+}
+
