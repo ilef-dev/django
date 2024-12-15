@@ -1,13 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Решение уравнения</title>
-</head>
-<body>
+{% extends "base.html" %}
+{% block content %}
     <h2>Решение квадратного уравнения</h2>
     <p><strong>Уравнение:</strong> {{ equation }}</p>
     <p><strong>Результат:</strong> {{ result }}</p>
 </body>
-</html>
+{% endblock %}
