@@ -43,38 +43,40 @@ def check_solution(request):
         correct_solution = f"x₁ = {x1:.2f}, x₂ = {x2:.2f}"
 
     if request.method == 'GET' and ('x1' in request.GET or 'bkr' in request.GET or 'nr' in request.GET):
-        x1 = request.GET.get('x1')
-        x2 = request.GET.get('x2')
-        x = request.GET.get('x')
-        bkr = request.GET.get('bkr')
-        nr = request.GET.get('nr')
+        try:
+            x1 = request.GET.get('x1')
+            x2 = request.GET.get('x2')
+            x = request.GET.get('x')
+            bkr = request.GET.get('bkr')
+            nr = request.GET.get('nr')
 
-        if bkr:
-            user_feedback = "правильно!" if a == 0 and b == 0 and c == 0 else "ответ неверный"
-            user_solution = "Бесконеное количество решений"
-        elif nr:
-            user_solution = "Нет решений"
-            user_feedback = "правильно!" if discriminant < 0 else "ответ неверный"
-        elif x1 and x2:
-            x1 = float(x1)
-            x2 = float(x2)
-            user_solution = f"x₁ = {x1:.2f}, x₂ = {x2:.2f}"
-            if user_solution == correct_solution:
-                user_feedback = "правильно!"
+            if bkr:
+                user_feedback = "правильно!" if a == 0 and b == 0 and c == 0 else "ответ неверный"
+                user_solution = "Бесконечное количество решений"
+            elif nr:
+                user_solution = "Нет решений"
+                user_feedback = "правильно!" if discriminant < 0 else "ответ неверный"
+            elif x1 and x2:
+                x1 = float(x1)  # Проверка преобразования
+                x2 = float(x2)
+                user_solution = f"x₁ = {x1:.2f}, x₂ = {x2:.2f}"
+                if user_solution == correct_solution:
+                    user_feedback = "правильно!"
+                else:
+                    user_feedback = "ответ неверный"
+            elif x:
+                x = float(x)  # Проверка преобразования
+                user_solution = f"x = {x:.2f}"
+                if user_solution == correct_solution:
+                    user_feedback = "правильно!"
+                else:
+                    user_feedback = "ответ неверный"
             else:
-                user_feedback = "ответ не верный"
-        elif x:
-            x = float(x)
-            user_solution = f"x = {x:.2f}"
-            if user_solution == correct_solution:
-                user_feedback = "правильно!"
-            else:
-                user_feedback = "ответ не верный"
-        else:
-            user_feedback = "выберите хотя бы один вариант ответа"
-
+                user_feedback = "выберите хотя бы один вариант ответа"
+        except ValueError:
+            user_feedback = "Введите числовые значения для x, x1 и x2."
     if user_solution:
-        Solution.objects.create(a=a, b=b, c=c, solution = correct_solution, user_solution = user_solution)
+        Solution.objects.create(a=a, b=b, c=c, solution=correct_solution, user_solution=user_solution)
 
     return render(request, 'solve.html', {
         'random_a': a,
