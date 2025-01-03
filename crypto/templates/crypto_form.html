@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Форма запроса</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f6f9;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 20px 0;
+        }
+        h1, h2 {
+            text-align: center;
+            color: #f3ba2f;
+            margin-bottom: 20px;
+        }
+        form {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            width: 100%;
+            max-width: 400px;
+            box-sizing: border-box;
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1rem;
+            box-sizing: border-box;
+        }
+        button {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            font-size: 1rem;
+            color: #000;
+            background-color: #f3ba2f;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+        button:hover {
+            background-color: #d8a728;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
+        button:active {
+            transform: translateY(0);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        .container {
+            text-align: center;
+            padding: 20px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        .form-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            width: 100%;
+        }
+        .about-button {
+            margin-top: 20px;
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 1rem;
+            color: #000;
+            background-color: #f3ba2f;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+        .about-button:hover {
+            background-color: #d8a728;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Введите название криптовалюты</h1>
+        <div class="form-wrapper">
+            <form method="POST" action="{% url 'crypto_request' %}">
+                {% csrf_token %}
+                <label for="crypto_name">Название криптовалюты:</label>
+                <input type="text" id="crypto_name" name="crypto_name" placeholder="Например: btc" required>
+                <button type="submit">Получить цену</button>
+            </form>
+            <h2>График</h2>
+            <form method="GET" action="{% url 'crypto_graph' %}">
+                <label for="crypto_name_graph">Название криптовалюты:</label>
+                <input type="text" id="crypto_name_graph" name="crypto_name" placeholder="Например: eth" required>
+                <button type="submit">Построить график</button>
+            </form>
+            <a href="{% url 'crypto_about' %}" class="about-button">О сайте</a>
+        </div>
+    </div>
+</body>
+</html>

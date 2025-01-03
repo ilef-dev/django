@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Регистрация</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f6f9;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        h1 {
+            color: #f3ba2f;
+            font-size: 2rem;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        form {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: left;
+            max-width: 400px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        form p {
+            margin-bottom: 15px;
+            color: #666;
+        }
+        form label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+        }
+        form input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            font-size: 1rem;
+            box-sizing: border-box;
+        }
+        form ul {
+            margin: 0 0 10px 0;
+            padding: 0 0 0 20px;
+            color: #888;
+            font-size: 0.9rem;
+        }
+        form ul li {
+            margin-bottom: 5px;
+        }
+        button {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            font-size: 1rem;
+            color: #000;
+            background-color: #f3ba2f;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+        button:hover {
+            background-color: #d8a728;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
+        button:active {
+            transform: translateY(0);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        .login-link {
+            margin-top: 20px;
+            text-align: center;
+            font-size: 1rem;
+        }
+        .login-link a {
+            color: #f3ba2f;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+        .login-link a:hover {
+            color: #d8a728;
+        }
+        .help-text {
+            color: #888;
+            font-size: 0.9rem;
+            margin-top: -10px;
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Регистрация</h1>
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Зарегистрироваться</button>
+    </form>
+    <p class="login-link">Уже есть аккаунт? <a href="/accounts/login/">Войти</a></p>
+</body>
+</html>

@@ -1,0 +1,131 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>О проекте</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f6f9;
+            color: #333;
+        }
+        .container {
+            width: 90%;
+            max-width: 1600px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .title {
+            font-size: 2rem;
+            font-weight: 600;
+            color: #f3ba2f;
+            margin: 0;
+        }
+        .image-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            justify-items: center;
+        }
+        .image-item {
+            background: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            padding: 15px;
+            width: 100%;
+            max-width: 300px;
+        }
+        .image-item img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+        .image-item p {
+            font-size: 1rem;
+            margin: 0;
+            color: #555;
+        }
+        .info-box {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin: 50px auto;
+            text-align: center;
+            max-width: 800px;
+        }
+        .info-box h2 {
+            color: #f3ba2f;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+        .info-box p {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: #555;
+        }
+        .button {
+            display: inline-block;
+            padding: 12px 25px;
+            font-size: 1rem;
+            color: #000;
+            background-color: #f3ba2f;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            margin-top: 20px;
+        }
+        .button:hover {
+            background-color: #d8a728;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <h1 class="title">О проекте</h1>
+    </header>
+    <main class="main-content container">
+        <section class="image-grid">
+            <div class="image-item">
+                <img src="{% static 'crypto/images/in.png' %}" alt="API CoinGecko">
+                <p>Защита от нежелательной нагрузки</p>
+            </div>
+            <div class="image-item">
+                <img src="{% static 'crypto/images/func.png' %}" alt="Авторизация">
+                <p>Богатый функционал</p>
+            </div>
+            <div class="image-item">
+                <img src="{% static 'crypto/images/rez.png' %}" alt="Кэширование">
+                <p>Самые свежие данные</p>
+            </div>
+            <div class="image-item">
+                <img src="{% static 'crypto/images/graph.png' %}" alt="Графический интерфейс">
+                <p>Наглядная статистика</p>
+            </div>
+        </section>
+        <div class="info-box">
+            <h2>Что это за сайт?</h2>
+            <p>
+                Сайт предоставляет актуальные данные о криптовалютах, включая текущие цены и графики изменений. 
+                Информация поступает из API Binance, что гарантирует высокую точность и надежность данных. 
+                Для доступа к функционалу требуется авторизация, позволяющая предотвратить избыточную нагрузку на сайт со стороны автоматизированных ботов. 
+                Зарегистрированные пользователи могут получать индивидуальный доступ к аналитическим инструментам и данным в режиме реального времени.
+            </p>
+        </div>
+        <div style="text-align: center;">
+            <a href="/crypto/" class="button">К главной странице</a>
+        </div>
+    </main>
+</body>
+</html>
